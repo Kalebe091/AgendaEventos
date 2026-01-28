@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">📅 AgendaEventos</div>
+            <ul class="menu">
+                <li><a href="#" onclick="mostrarTela('dashboard')">Agenda Pública</a></li>
+                <li><a href="#" onclick="mostrarTela('solicitacao')">Solicitar Evento</a></li>
+                <li><a href="#" onclick="mostrarTela('admin')" class="btn-admin">Administração</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard" class="tela ativa">
+            <h2>Próximos Eventos</h2>
+
+            <div class="filtros">
+                <input type="date" id="filtroData">
+                <button onclick="filtrarEventos()">Filtrar</button>
+            </div>
+
+            <div id="lista-eventos-publica" class="grid-eventos">
+                <p>Carregando eventos...</p>
+            </div>
+        </section>
+
+        <section id="solicitacao" class="tela oculta">
+            <h2>Solicitar Novo Agendamento</h2>
+            <form id="form-solicitacao">
+                <div class="grupo-input">
+                    <label>Título do Evento:</label>
+                    <input type="text" id="titulo" required placeholder="Ex: Palestra de Tecnologia">
+                </div>
+
+                <div class="grupo-input row">
+                    <div>
+                        <label>Data:</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div>
+                        <label>Horário Início:</label>
+                        <input type="time" id="horaInicio" required>
+                    </div>
+                    <div>
+                        <label>Horário Fim:</label>
+                        <input type="time" id="horaFim" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Local:</label>
+                    <select id="local" required>
+                        <option value="auditorio">Auditório Principal</option>
+                        <option value="sala1">Laboratório de Informática 1</option>
+                        <option value="sala2">Sala de Reuniões</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label>Solicitante (Seu nome):</label>
+                    <input type="text" id="solicitante" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Solicitação</button>
+            </form>
+        </section>
+
+        <section id="login" class="tela oculta">
+            <div class="login-container">
+                <div class="login-box">
+                    <h2 style="text-align: center; border: none;">🔒 Acesso Restrito</h2>
+                    <p style="text-align: center; color: var(--secondary); margin-bottom: 20px;">
+                        Área exclusiva para administradores.
+                    </p>
+                    <form id="form-login" style="box-shadow: none; padding: 0;">
+                        <div class="grupo-input">
+                            <label>E-mail</label>
+                            <input type="email" id="login-email" placeholder="admin@escola.com" required>
+                        </div>
+                        <div class="grupo-input">
+                            <label>Senha</label>
+                            <input type="password" id="login-senha" placeholder="••••••" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Entrar no Sistema</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="tela oculta">
+            <div class="header-admin">
+                <div>
+                    <h2>Gerenciamento de Eventos</h2>
+                    <span class="badge-admin">Modo Administrador</span>
+                </div>
+                <button onclick="fazerLogout()"
+                    style="background: var(--danger); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 600;">Sair
+                    🚪</button>
+            </div>
+
+            <div id="lista-eventos-admin" class="grid-admin">
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
