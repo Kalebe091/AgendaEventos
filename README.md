@@ -73,13 +73,6 @@ Para testar as funcionalidades de gerenciamento, utilize as credenciais simulada
 
 ---
 
-## 🎨 Prévias do Layout
-
-| Área Pública (Cards) | Painel Admin (Tabela) |
-| --- | --- |
-| *(Insira aqui um print da tela)* | *(Insira aqui um print da tela)* |
-
----
 
 Desenvolvido para fins de estudo sobre Lógica de Programação, Front-end Moderno e **AI-Powered Coding**.
 
